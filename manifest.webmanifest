@@ -1,0 +1,10 @@
+  
+{  
+  "name": "Smart Scan for Truckers",  
+  "short_name": "Truck Scan",  
+  "start_url": ".",  
+  "display": "standalone",  
+  "background_color": "#0d0d0d",  
+  "theme_color": "#0d0d0d",  
+  "icons": []  
+}  
