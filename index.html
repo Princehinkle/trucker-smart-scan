@@ -1,0 +1,98 @@
+#   
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  <title>Smart Scan for Truckers</title>  
+  <link rel="manifest" href="manifest.webmanifest">  
+  <link rel="stylesheet" href="styles.css" />  
+  <meta name="theme-color" content="#0d0d0d"/>  
+  <meta name="description" content="Scan weekly settlements, auto-calc revenue & deductions. Great for taxes."/>  
+  <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>  
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.min.js"></script>  
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.19.3/xlsx.full.min.js"></script>  
+  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>  
+  <script defer src="app.js"></script>  
+</head>  
+<body>  
+  <header>  
+    <h1>Smart Scan for Truckers</h1>  
+    <p class="subtitle">Scan settlements → organize → export. 100% in your browser.</p>  
+    <button id="installBtn" class="btn secondary" hidden>Install App</button>  
+  </header>  
+  
+  <main>  
+    <section class="card">  
+      <h2>1) Add Settlement Files</h2>  
+      <p>Upload images (<code>JPG, PNG</code>) or multipage <code>PDF</code>. All OCR runs locally.</p>  
+      <input type="file" id="fileInput" multiple accept=".png,.jpg,.jpeg,.pdf"/>  
+      <div id="fileList"></div>  
+      <div id="progress" class="progress"><div id="bar"></div></div>  
+      <button id="runOcr" class="btn">Run OCR</button>  
+      <label class="inline"><input type="checkbox" id="mergePages" checked/> Merge all pages into one batch</label>  
+    </section>  
+  
+    <section class="card">  
+      <h2>2) Parsing Rules</h2>  
+      <p>Customize how lines are classified. Add a keyword or regex and choose category.</p>  
+      <div class="rules">  
+        <table id="rulesTable">  
+          <thead>  
+            <tr><th>Pattern (regex ok)</th><th>Category</th><th>Type</th><th>Notes</th><th></th></tr>  
+          </thead>  
+          <tbody id="rulesBody"></tbody>  
+        </table>  
+        <button id="addRule" class="btn">Add Rule</button>  
+        <button id="saveRules" class="btn secondary">Save Rules</button>  
+        <button id="resetRules" class="btn danger">Reset Defaults</button>  
+      </div>  
+    </section>  
+  
+    <section class="card">  
+      <h2>3) Results</h2>  
+      <div class="actions">  
+        <button id="exportCsv" class="btn">Export CSV</button>  
+        <button id="exportXlsx" class="btn">Export XLSX</button>  
+        <button id="clearData" class="btn danger">Clear All</button>  
+      </div>  
+  
+      <div class="grid">  
+        <div>  
+          <h3>Parsed Lines</h3>  
+          <table id="dataTable" class="table">  
+            <thead><tr id="dataHead"></tr></thead>  
+            <tbody id="dataBody"></tbody>  
+          </table>  
+        </div>  
+        <div>  
+          <h3>Rollups</h3>  
+          <div id="rollups"></div>  
+        </div>  
+      </div>  
+    </section>  
+  
+    <section class="card">  
+      <h2>Tips</h2>  
+      <ul>  
+        <li>Tweak rules until your carrier's layout maps correctly.</li>  
+        <li>Use the <em>Type</em> column to set <strong>Revenue</strong> vs <strong>Deduction</strong>.</li>  
+        <li>Dates & dollar amounts are auto-detected. You can edit cells inline.</li>  
+        <li>Install on your phone (Add to Homescreen) for a native-like feel.</li>  
+      </ul>  
+    </section>  
+  </main>  
+  
+  <footer>  
+    <small>© <span id="year"></span> Smart Scan for Truckers • Works offline after first load</small>  
+  </footer>  
+  
+  <script>  
+    if ('serviceWorker' in navigator) {  
+      window.addEventListener('load', () => {  
+        navigator.serviceWorker.register('sw.js');  
+      });  
+    }  
+  </script>  
+</body>  
+</html>  
