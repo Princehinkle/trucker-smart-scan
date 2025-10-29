@@ -1,0 +1,7 @@
+[
+  {"pattern": "(fuel|diesel)", "category": "Fuel", "type": "Deduction"},
+  {"pattern": "(insurance|bobtail)", "category": "Insurance", "type": "Deduction"},
+  {"pattern": "(bonus|incentive|mileage pay)", "category": "Revenue", "type": "Revenue"},
+  {"pattern": "(advance|loan)", "category": "Advance", "type": "Deduction"},
+  {"pattern": "(lumper|unload)", "category": "Unloading", "type": "Deduction"}
+]
