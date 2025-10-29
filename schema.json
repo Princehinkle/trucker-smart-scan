@@ -1,0 +1,5 @@
+{
+  "columns": ["date", "description", "type", "category", "amount", "load", "miles"],
+  "currency": "USD",
+  "locale": "en-US"
+}
