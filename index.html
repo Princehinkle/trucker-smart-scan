@@ -1,4 +1,71 @@
-   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SmartScan — Built for Truck Drivers</title>
+
+  <meta name="description" content="Snap a photo of your weekly settlement. SmartScan straightens, reads, and drops every line into a clean spreadsheet — see revenue, deductions, and net pay daily, weekly, and monthly." />
+  <meta property="og:title" content="SmartScan for Truck Drivers" />
+  <meta property="og:description" content="Turn settlement photos into clean spreadsheets. Revenue, deductions, and net pay — auto-calculated." />
+  <meta property="og:type" content="website" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- your existing script tags to tesseract/pdf.js/etc -->
+  <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>SmartScan. Built for Truck Drivers.</h1>
+      <p class="tagline">
+        Snap a photo of your weekly settlement. Our app straightens, reads,
+        and drops every line into a clean spreadsheet.
+        Instantly see <strong>revenue</strong>, <strong>deductions</strong>,
+        and <strong>net pay</strong> by the day.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn primary" href="#scanner">Open the Scanner</a>
+        <button id="installBtn" class="btn secondary" hidden>Install App</button>
+      </div>
+
+      <ul class="hero-points">
+        <li>Weekly settlement. Just scan it.</li>
+        <li>Turns paperwork into clean digital rows.</li>
+        <li>Auto rollups: daily • weekly • monthly.</li>
+        <li>100% on your device — no uploads.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SCANNER (your existing UI) -->
+  <main id="scanner">
+    <!-- keep everything you already have, starting from your
+         <header><h1>…</h1> etc. If you want, remove that old small header
+         so you don’t have two titles. -->
+    <!-- Example: -->
+    <section class="card">
+      <h2>1) Add Settlement Files</h2>
+      <!-- ... the rest of your current markup unchanged ... -->
+    </section>
+
+    <!-- your other sections: Parsing Rules, Results, etc. -->
+  </main>
+
+  <footer class="site-foot">
+    © 2025 SmartScan for Truckers • Works offline after first load
+  </footer>
+</body>
+</html>  
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
