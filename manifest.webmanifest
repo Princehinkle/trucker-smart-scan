@@ -1,10 +1,9 @@
-  
-{  
-  "name": "Smart Scan for Truckers",  
-  "short_name": "Truck Scan",  
-  "start_url": ".",  
-  "display": "standalone",  
-  "background_color": "#0d0d0d",  
-  "theme_color": "#0d0d0d",  
-  "icons": []  
-}  
+{
+  "name": "SmartScan — Built for Truck Drivers",
+  "short_name": "SmartScan",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
+  "icons": []
+}
