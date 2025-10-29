@@ -1,4 +1,14 @@
-
+async function loadSharedFiles() {
+  const [rules, schema, branding] = await Promise.all([
+    fetch('../shared/rules.json').then(r => r.json()),
+    fetch('../shared/schema.json').then(r => r.json()),
+    fetch('../shared/branding.json').then(r => r.json())
+  ]);
+  window.shared = { rules, schema, branding };
+  document.title = branding.appName + ' – ' + branding.tagline;
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', branding.primaryColor);
+}
+loadSharedFiles();
 /* Smart Scan for Truckers - client-only prototype  
  * - Tesseract.js for OCR  
  * - pdf.js for PDF rasterization  
